@@ -8,7 +8,7 @@
 
 body{
   text-align: center;
-  background: #cccccc;
+  background: #fff;
   font-family: sans-serif;
   font-weight: 100;
 }
@@ -16,7 +16,7 @@ body{
 h1{
   color: #042b5d;
   font-weight: 900;
-  font-size: 100px;
+  font-size: 120px;
   margin: 40px 0px 20px;
 }
 
@@ -65,7 +65,7 @@ h1{
 	display: block;
 	font-weight: 700;
 	text-align: center;
-	font-size: 38px;
+	font-size: 30px;
 	vertical-align: text-top;
 	margin-left: auto; 
 	margin-right: auto;
@@ -110,13 +110,15 @@ h1{
 
 </head>
 
-<body translate="no" >
+<body translate="no">
 
-	<h1 align="Centre">
-		<img src="logo.png" alt="Diamond Light Source" height="150px">
-		<img src="diamond_logo.png" alt="Diamond Light Source" height="150px"></h1>
-    <h1>Software Developers Away Day 2017</h1>
+	<header>
+		<img src="logo.png" alt="Diamond Light Source" height="150px" align="left">
+		<img src="diamond.png" alt="Diamond Light Source" height="150px" align="right">
+    		<h1>SDAD 2017</h1>
+        </header>
 	
+
 	<div id="clockdiv">
   	<div>
     		<span class="minutes"></span>
@@ -165,8 +167,10 @@ function getTimeRemaining(endtime) {
   };
 }
 
-function initializeClock(id, endtime) {
+function initializeClock(id, endtime, warntime) {
   clearInterval(timeinterval);
+
+  document.body.style.background = '#fff';
 
   clock.style.display = 'inline-block';
   var minutesSpan = clock.querySelector('.minutes');
@@ -178,9 +182,14 @@ function initializeClock(id, endtime) {
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
+    if (t.total <= warntime) {
+      document.body.style.background = '#ffff00';
+    }
+
     if (t.total <= 0) {
       clearInterval(timeinterval);
       clock.style.display = 'none';
+      document.body.style.background = '#ff0000';
     }
   }
 
@@ -190,27 +199,27 @@ function initializeClock(id, endtime) {
 
 function intro() {
 	var deadline = new Date(Date.now() + 5 * 60 * 1000);
-	initializeClock('clockdiv', deadline);
+	initializeClock('clockdiv', deadline, 1 * 60 * 1000);
 }
 
 function welcome() {
 	var deadline = new Date(Date.now() + 15 * 60 * 1000);
-	initializeClock('clockdiv', deadline);
+	initializeClock('clockdiv', deadline, 5 * 60 * 1000);
 }
 
 function keynote() {
 	var deadline = new Date(Date.now() + 30 * 60 * 1000);
-	initializeClock('clockdiv', deadline);
+	initializeClock('clockdiv', deadline, 5 * 60 * 1000);
 }
 
 function team() {
 	var deadline = new Date(Date.now() + 7.5 * 60 * 1000);
-	initializeClock('clockdiv', deadline);
+	initializeClock('clockdiv', deadline, 1.5 * 60 * 1000);
 }
 
 function technical() {
 	var deadline = new Date(Date.now() + 15 * 60 * 1000);
-	initializeClock('clockdiv', deadline);
+	initializeClock('clockdiv', deadline, 2.5 * 60 * 1000);
 }
 
 var timeinterval = 0;
