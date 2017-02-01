@@ -8,13 +8,13 @@
 
 body{
   text-align: center;
-  background: #F3F01D;
+  background: #cccccc;
   font-family: sans-serif;
   font-weight: 100;
 }
 
 h1{
-  color: #40B93C;
+  color: #042b5d;
   font-weight: 900;
   font-size: 100px;
   margin: 40px 0px 20px;
@@ -33,14 +33,14 @@ h1{
 #clockdiv > div {
 	padding: 15px;
 	border-radius: 9px;
-	background: #40B93C;
+	background: #fbdb3b;
 	display: inline-block;
 }
 
 #clockdiv div > span {
 	padding: 20px;
 	border-radius: 9px;
-	background: #26963C;
+	background: #042b5d;
 	display: inline-block;
 }
 
@@ -65,7 +65,7 @@ h1{
 	display: block;
 	font-weight: 700;
 	text-align: center;
-	font-size: 24px;
+	font-size: 38px;
 	vertical-align: text-top;
 	margin-left: auto; 
 	margin-right: auto;
@@ -79,7 +79,7 @@ h1{
 	display: inline-block;
 	*display: inline;
 	zoom: 1;
-	background: #40B93C;
+	background: #042b5d;
 	border-radius: 8px;
 	padding: 12px;
 	margin: 0px 50px 0px 50px;
@@ -112,7 +112,11 @@ h1{
 
 <body translate="no" >
 
-    <h1>NOBUGS 2016</h1>
+	<h1 align="Centre">
+		<img src="logo.png" alt="Diamond Light Source" height="150px">
+		<img src="diamond_logo.png" alt="Diamond Light Source" height="150px"></h1>
+    <h1>Software Developers Away Day 2017</h1>
+	
 	<div id="clockdiv">
   	<div>
     		<span class="minutes"></span>
@@ -131,14 +135,20 @@ h1{
 	</div>
 
 	<div id="controls">
+		<div onclick="intro()">
+			Intro
+		</div>
+		<div onclick="welcome()">
+			Welcome
+		</div>
 		<div onclick="keynote()">
 			Keynote
 		</div>
-		<div onclick="oral()">
-			Oral
+		<div onclick="team()">
+			Team Update
 		</div>
-		<div onclick="minioral()">
-			Mini-Oral
+		<div onclick="technical()">
+			Technical
 		</div>
 		<span class="stretch"></span>
 	</div>
@@ -178,16 +188,28 @@ function initializeClock(id, endtime) {
   timeinterval = setInterval(updateClock, 1000);
 }
 
-function keynote() {
-	var deadline = new Date(Date.now() + 45 * 60 * 1000);
+function intro() {
+	var deadline = new Date(Date.now() + 5 * 60 * 1000);
 	initializeClock('clockdiv', deadline);
 }
-function oral() {
+
+function welcome() {
 	var deadline = new Date(Date.now() + 15 * 60 * 1000);
 	initializeClock('clockdiv', deadline);
 }
-function minioral() {
-	var deadline = new Date(Date.now() + 5 * 60 * 1000);
+
+function keynote() {
+	var deadline = new Date(Date.now() + 30 * 60 * 1000);
+	initializeClock('clockdiv', deadline);
+}
+
+function team() {
+	var deadline = new Date(Date.now() + 7.5 * 60 * 1000);
+	initializeClock('clockdiv', deadline);
+}
+
+function technical() {
+	var deadline = new Date(Date.now() + 15 * 60 * 1000);
 	initializeClock('clockdiv', deadline);
 }
 
