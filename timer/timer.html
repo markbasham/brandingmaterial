@@ -96,6 +96,15 @@ h1{
 	padding-top: 5px;
 	font-size: 36px;
 }
+
+.talkbutton {
+	text-align: center;
+}
+
+.talkduration {
+	display: block;
+	font-size: 20px;
+}
     </style>
 
 <script>
@@ -137,20 +146,25 @@ h1{
 	</div>
 
 	<div id="controls">
-		<div onclick="start_countdown(5, 1)">
+		<div class="talkbutton" onclick="start_countdown(5, 1)">
 			Intro
+			<span class="talkduration">(5 mins)</span>
 		</div>
-		<div onclick="start_countdown(15, 5)">
+		<div class="talkbutton" onclick="start_countdown(15, 5)">
 			Welcome
+			<span class="talkduration">(15 mins)</span>
 		</div>
-		<div onclick="start_countdown(30, 5)">
+		<div class="talkbutton" onclick="start_countdown(30, 5)">
 			Keynote
+			<span class="talkduration">(30 mins)</span>
 		</div>
-		<div onclick="start_countdown(7.5, 1.5)">
+		<div class="talkbutton" onclick="start_countdown(7.5, 1.5)">
 			Team Update
+			<span class="talkduration">(7&frac12; mins)</span>
 		</div>
-		<div onclick="start_countdown(15, 2.5)">
+		<div class="talkbutton" onclick="start_countdown(15, 2.5)">
 			Technical
+			<span class="talkduration">(15 mins)</span>
 		</div>
 		<span class="stretch"></span>
 	</div>
