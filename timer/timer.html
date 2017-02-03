@@ -137,19 +137,19 @@ h1{
 	</div>
 
 	<div id="controls">
-		<div onclick="intro()">
+		<div onclick="start_countdown(5, 1)">
 			Intro
 		</div>
-		<div onclick="welcome()">
+		<div onclick="start_countdown(15, 5)">
 			Welcome
 		</div>
-		<div onclick="keynote()">
+		<div onclick="start_countdown(30, 5)">
 			Keynote
 		</div>
-		<div onclick="team()">
+		<div onclick="start_countdown(7.5, 1.5)">
 			Team Update
 		</div>
-		<div onclick="technical()">
+		<div onclick="start_countdown(15, 2.5)">
 			Technical
 		</div>
 		<span class="stretch"></span>
@@ -197,29 +197,9 @@ function initializeClock(id, endtime, warntime) {
   timeinterval = setInterval(updateClock, 1000);
 }
 
-function intro() {
-	var deadline = new Date(Date.now() + 5 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 1 * 60 * 1000);
-}
-
-function welcome() {
-	var deadline = new Date(Date.now() + 15 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 5 * 60 * 1000);
-}
-
-function keynote() {
-	var deadline = new Date(Date.now() + 30 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 5 * 60 * 1000);
-}
-
-function team() {
-	var deadline = new Date(Date.now() + 7.5 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 1.5 * 60 * 1000);
-}
-
-function technical() {
-	var deadline = new Date(Date.now() + 15 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 2.5 * 60 * 1000);
+function start_countdown(duration, warntime) {
+	var deadline = new Date(Date.now() + duration * 60 * 1000);
+	initializeClock('clockdiv', deadline, warntime * 60 * 1000);
 }
 
 var timeinterval = 0;
