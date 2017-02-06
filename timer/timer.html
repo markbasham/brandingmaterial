@@ -96,6 +96,15 @@ h1{
 	padding-top: 5px;
 	font-size: 36px;
 }
+
+.talkbutton {
+	text-align: center;
+}
+
+.talkduration {
+	display: block;
+	font-size: 20px;
+}
     </style>
 
 <script>
@@ -137,20 +146,25 @@ h1{
 	</div>
 
 	<div id="controls">
-		<div onclick="intro()">
+		<div class="talkbutton" onclick="start_countdown(5, 1)">
 			Intro
+			<span class="talkduration">(5 mins)</span>
 		</div>
-		<div onclick="welcome()">
+		<div class="talkbutton" onclick="start_countdown(15, 5)">
 			Welcome
+			<span class="talkduration">(15 mins)</span>
 		</div>
-		<div onclick="keynote()">
+		<div class="talkbutton" onclick="start_countdown(30, 5)">
 			Keynote
+			<span class="talkduration">(30 mins)</span>
 		</div>
-		<div onclick="team()">
+		<div class="talkbutton" onclick="start_countdown(7.5, 1.5)">
 			Team Update
+			<span class="talkduration">(7&frac12; mins)</span>
 		</div>
-		<div onclick="technical()">
+		<div class="talkbutton" onclick="start_countdown(15, 2.5)">
 			Technical
+			<span class="talkduration">(15 mins)</span>
 		</div>
 		<span class="stretch"></span>
 	</div>
@@ -197,29 +211,9 @@ function initializeClock(id, endtime, warntime) {
   timeinterval = setInterval(updateClock, 1000);
 }
 
-function intro() {
-	var deadline = new Date(Date.now() + 5 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 1 * 60 * 1000);
-}
-
-function welcome() {
-	var deadline = new Date(Date.now() + 15 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 5 * 60 * 1000);
-}
-
-function keynote() {
-	var deadline = new Date(Date.now() + 30 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 5 * 60 * 1000);
-}
-
-function team() {
-	var deadline = new Date(Date.now() + 7.5 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 1.5 * 60 * 1000);
-}
-
-function technical() {
-	var deadline = new Date(Date.now() + 15 * 60 * 1000);
-	initializeClock('clockdiv', deadline, 2.5 * 60 * 1000);
+function start_countdown(duration, warntime) {
+	var deadline = new Date(Date.now() + duration * 60 * 1000);
+	initializeClock('clockdiv', deadline, warntime * 60 * 1000);
 }
 
 var timeinterval = 0;
